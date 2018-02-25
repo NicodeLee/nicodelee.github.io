@@ -229,6 +229,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nicodelee.cc/2016/11/16/Freeline(0.8.2版)增量编译工具使用体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NicodeLee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NicodeLee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/16/Freeline(0.8.2版)增量编译工具使用体验/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-16T16:20:02+08:00">
+                2016-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Freeline-0-8-2版-增量编译工具使用体验"><a href="#Freeline-0-8-2版-增量编译工具使用体验" class="headerlink" title="Freeline(0.8.2版)增量编译工具使用体验"></a>Freeline(0.8.2版)增量编译工具使用体验</h1><p><img src="http://ww4.sinaimg.cn/large/006tNc79gw1f6ooza8pkuj30h804gjrk.jpg" alt="Freeline"></p>
+<blockquote>
+<p>为了节约更多喝咖啡时间，克服项目构建时容易蹭聊天的习惯。</p>
+</blockquote>
+<h2 id="环境构建"><a href="#环境构建" class="headerlink" title="环境构建"></a>环境构建</h2><p>事实证明，国内用Gardle命令构建打断腿的慢，建议直接下载gradle-all.zip，放到Gradle环境变量目录<br>mac目录在：<br><code>user/.gradle/wrapper/dists/gradle-xx.all</code><br>win类似，找到环境变量文件夹.gradle下面目录。<br>tip:分享个不需要到直接下载你项目gradle的技巧<br><img src="http://ogmiq4hkc.bkt.clouddn.com/gradle-down.png" alt=""><br>将<code>distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip</code><br>修改为如：<a href="https://services.gradle.org/distributions/gradle-2.14.1-all.zip" target="_blank" rel="noopener">https://services.gradle.org/distributions/gradle-2.14.1-all.zip</a><br>类似3.0、3.1的gradle-all.zip也可以直接下载。我测试在用迅雷下速度感人，2m/s。 </p>
+<p><code>initFreeline</code>如果很慢（工作家庭网络测试多次不加参数都会很慢），建议加上参数，执行<code>./gradlew initFreeline -Pmirror</code><br>试换国内源，关闭vpn（注意）。</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>详细使用参考文章下面的官方文档。<br>需要说明的是，一定要安装官方的插件。<br><img src="http://ogmiq4hkc.bkt.clouddn.com/FreeLine-puugin.png" alt=""><br>一次全量编译后，每次修改直接点插件按钮运行，下面Freeline py命令行窗口（别学我开始还像之前傻傻的点运行），任务运行时间提示。<br><img src="http://ogmiq4hkc.bkt.clouddn.com/bulit.png" alt=""><br>增量修改秒编译，测试一般改改代码，重行运行，平均15s左右，想想之前编译一次一分钟以上，喝咖啡时间都浪费在蹭聊天上。感谢Freeline</p>
+<p>0.82初次使用py文件某行提示有问题试下<br><code>python freeline.py -f -d</code>绕过问题，或者<code>gradlew initFreeline -PfreelineVersion=0.8.1</code><br>回到0.81版本</p>
+<h2 id="心得分享"><a href="#心得分享" class="headerlink" title="心得分享"></a>心得分享</h2><p>至于有没有坑，使用一段时间再回来补充。目前<strong><a href="https://github.com/alibaba/freeline/issues" target="_blank" rel="noopener">issues</a></strong>回复跟项目更新还是很实时。</p>
+<ul>
+<li>新建butterknife点击事件时候找不到id，需要重新<code>./gradlew clean</code><br>大多资源问题，这方法能解决，类似rebuild</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.freelinebuild.com/docs/zh_cn/###" target="_blank" rel="noopener">推荐-新出官网文档</a><br><a href="https://github.com/alibaba/freeline/blob/master/README-zh.md" target="_blank" rel="noopener">Github官方中文文档</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nicodelee.cc/2016/11/14/碎语一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -999,7 +1131,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
