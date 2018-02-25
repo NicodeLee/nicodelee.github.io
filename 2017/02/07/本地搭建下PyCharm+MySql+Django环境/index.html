@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本地搭建下PyCharm+MySql+Django环境虚拟主机代码调试不方便，修改ftp上传太慢。不利于本阶段（入门）的学习，效率低。 特此文字记录备后查看（文章逻辑得空再整理）。（系统为mac） Django部分略，通过PyCharm新建注意python构建版本 MySql连接部分MySql本机已经通过homebrew装过参考mysql-python-install-mac通过pip insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/本地搭建下PyCharm+MySql+Django环境/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本地搭建下PyCharm+MySql+Django环境虚拟主机代码调试不方便，修改ftp上传太慢。不利于本阶段（入门）的学习，效率低。 特此文字记录备后查看（文章逻辑得空再整理）。（系统为mac） Django部分略，通过PyCharm新建注意python构建版本 MySql连接部分MySql本机已经通过homebrew装过参考mysql-python-install-mac通过pip insta">
+<meta property="og:image" content="http://yoursite.com/2017/02/07/本地搭建下PyCharm+MySql+Django环境/media/14864512434203/14864547006106.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/02/07/本地搭建下PyCharm+MySql+Django环境/media/14864512434203/14865193284443.jpg">
+<meta property="og:updated_time" content="2017-02-08T03:35:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="本地搭建下PyCharm+MySql+Django环境虚拟主机代码调试不方便，修改ftp上传太慢。不利于本阶段（入门）的学习，效率低。 特此文字记录备后查看（文章逻辑得空再整理）。（系统为mac） Django部分略，通过PyCharm新建注意python构建版本 MySql连接部分MySql本机已经通过homebrew装过参考mysql-python-install-mac通过pip insta">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/07/本地搭建下PyCharm+MySql+Django环境/media/14864512434203/14864547006106.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-本地搭建下PyCharm+MySql+Django环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/07/本地搭建下PyCharm+MySql+Django环境/" class="article-date">
+  <time datetime="2017-02-07T07:07:23.000Z" itemprop="datePublished">2017-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="本地搭建下PyCharm-MySql-Django环境"><a href="#本地搭建下PyCharm-MySql-Django环境" class="headerlink" title="本地搭建下PyCharm+MySql+Django环境"></a>本地搭建下PyCharm+MySql+Django环境</h1><p>虚拟主机代码调试不方便，修改ftp上传太慢。不利于本阶段（入门）的学习，效率低。</p>
+<p>特此文字记录备后查看（文章逻辑得空再整理）。（系统为mac）</p>
+<h2 id="Django部分略，通过PyCharm新建"><a href="#Django部分略，通过PyCharm新建" class="headerlink" title="Django部分略，通过PyCharm新建"></a>Django部分略，通过PyCharm新建</h2><p><em>注意python构建版本</em></p>
+<h2 id="MySql连接部分"><a href="#MySql连接部分" class="headerlink" title="MySql连接部分"></a>MySql连接部分</h2><p>MySql本机已经通过homebrew装过<br>参考<a href="http://stackoverflow.com/questions/38549431/mysql-python-install-mac" target="_blank" rel="noopener">mysql-python-install-mac</a><br>通过<code>pip install mysql-python</code>安装ptyhon mysql链接库。<br>途中遇到了点小问题。尝试<br><code>easy_install MySQL-python --upgrade</code><br>折腾无果，放弃次方法。</p>
+<p>尝试<code>pip install pymysql</code> 本机没文件权限执行了：<code>sudo pip install pymysql</code><br>参考了下面文章。<br><a href="http://www.jianshu.com/p/3f1820f3d904" target="_blank" rel="noopener">http://www.jianshu.com/p/3f1820f3d904</a><br><a href="http://www.bkjia.com/Pythonjc/1160073.html" target="_blank" rel="noopener">http://www.bkjia.com/Pythonjc/1160073.html</a></p>
+<p>数据库工具 <code>Navicat Premium</code> 以下简称<code>NP</code><br><code>mysql.server start</code> 启动</p>
+<p>NP连接可视化操作<br><img src="media/14864512434203/14864547006106.jpg" alt=""></p>
+<p>至此本地数据库准备部分完成，下面折腾下Django本机数据库连接，最后尝试下，本地服务器数据库、配置自动切换（<a href="http://blog.csdn.net/twilight041132/article/details/50574221" target="_blank" rel="noopener">参考</a>）。<br><a href="https://docs.djangoproject.com/en/1.10/topics/db/multi-db/" target="_blank" rel="noopener">官方文档</a>上面说配置第一个无效会自动连接第二个，没用上文的方法了，测试过可以自动切换。</p>
+<h2 id="Django操作数据库"><a href="#Django操作数据库" class="headerlink" title="Django操作数据库"></a>Django操作数据库</h2><p>到项目目录执行如下命令同步所有的数据表（更多数据库命令需要进一步了解）<br><code>python manage.py makemigrations</code></p>
+<p><code>python manage.py migrate</code></p>
+<p>执行成功创建如下表，要自行建立model<br><img src="media/14864512434203/14865193284443.jpg" alt=""></p>
+<p>Django提供后台操作，推荐自强学堂文章<a href="http://www.ziqiangxuetang.com/django/django-admin.html" target="_blank" rel="noopener">点击查看</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/07/本地搭建下PyCharm+MySql+Django环境/" data-id="cje2hkp2c000bgc783fdkiheg" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/23/让自己回归技术本心/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/19/给2017写点东西/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/一些效果、功能的自我最佳实践/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/GitHub组织指南/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/31/Android Studio快捷键/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/23/让自己回归技术本心/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

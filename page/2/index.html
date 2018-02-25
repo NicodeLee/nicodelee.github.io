@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Freeline(0.8.2版)增量编译工具使用体验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/16/Freeline(0.8.2版)增量编译工具使用体验/" class="article-date">
+  <time datetime="2016-11-16T08:20:02.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Freeline-0-8-2版-增量编译工具使用体验"><a href="#Freeline-0-8-2版-增量编译工具使用体验" class="headerlink" title="Freeline(0.8.2版)增量编译工具使用体验"></a>Freeline(0.8.2版)增量编译工具使用体验</h1><p><img src="http://ww4.sinaimg.cn/large/006tNc79gw1f6ooza8pkuj30h804gjrk.jpg" alt="Freeline"></p>
+<blockquote>
+<p>为了节约更多喝咖啡时间，克服项目构建时容易蹭聊天的习惯。</p>
+</blockquote>
+<h2 id="环境构建"><a href="#环境构建" class="headerlink" title="环境构建"></a>环境构建</h2><p>事实证明，国内用Gardle命令构建打断腿的慢，建议直接下载gradle-all.zip，放到Gradle环境变量目录<br>mac目录在：<br><code>user/.gradle/wrapper/dists/gradle-xx.all</code><br>win类似，找到环境变量文件夹.gradle下面目录。<br>tip:分享个不需要到直接下载你项目gradle的技巧<br><img src="http://ogmiq4hkc.bkt.clouddn.com/gradle-down.png" alt=""><br>将<code>distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip</code><br>修改为如：<a href="https://services.gradle.org/distributions/gradle-2.14.1-all.zip" target="_blank" rel="noopener">https://services.gradle.org/distributions/gradle-2.14.1-all.zip</a><br>类似3.0、3.1的gradle-all.zip也可以直接下载。我测试在用迅雷下速度感人，2m/s。 </p>
+<p><code>initFreeline</code>如果很慢（工作家庭网络测试多次不加参数都会很慢），建议加上参数，执行<code>./gradlew initFreeline -Pmirror</code><br>试换国内源，关闭vpn（注意）。</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>详细使用参考文章下面的官方文档。<br>需要说明的是，一定要安装官方的插件。<br><img src="http://ogmiq4hkc.bkt.clouddn.com/FreeLine-puugin.png" alt=""><br>一次全量编译后，每次修改直接点插件按钮运行，下面Freeline py命令行窗口（别学我开始还像之前傻傻的点运行），任务运行时间提示。<br><img src="http://ogmiq4hkc.bkt.clouddn.com/bulit.png" alt=""><br>增量修改秒编译，测试一般改改代码，重行运行，平均15s左右，想想之前编译一次一分钟以上，喝咖啡时间都浪费在蹭聊天上。感谢Freeline</p>
+<p>0.82初次使用py文件某行提示有问题试下<br><code>python freeline.py -f -d</code>绕过问题，或者<code>gradlew initFreeline -PfreelineVersion=0.8.1</code><br>回到0.81版本</p>
+<h2 id="心得分享"><a href="#心得分享" class="headerlink" title="心得分享"></a>心得分享</h2><p>至于有没有坑，使用一段时间再回来补充。目前<strong><a href="https://github.com/alibaba/freeline/issues" target="_blank" rel="noopener">issues</a></strong>回复跟项目更新还是很实时。</p>
+<ul>
+<li>新建butterknife点击事件时候找不到id，需要重新<code>./gradlew clean</code><br>大多资源问题，这方法能解决，类似rebuild</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.freelinebuild.com/docs/zh_cn/###" target="_blank" rel="noopener">推荐-新出官网文档</a><br><a href="https://github.com/alibaba/freeline/blob/master/README-zh.md" target="_blank" rel="noopener">Github官方中文文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/16/Freeline(0.8.2版)增量编译工具使用体验/" data-id="cje2hkp1m0002gc78qvsx4sk1" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-碎语一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/碎语一/" class="article-date">
+  <time datetime="2016-11-14T08:44:03.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#碎语一</p>
+<h4 id="这是个类似说说的页面。"><a href="#这是个类似说说的页面。" class="headerlink" title="这是个类似说说的页面。"></a>这是个类似说说的页面。</h4><ul>
+<li><blockquote>
+<p>『腾讯传』是一本马化腾如何做产品的故事。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>会复制叫懂了吗，会看着写叫懂了吗，能看懂大概叫懂了吗，情况变一下还懂吗，要怎样学才叫懂，代码，文档都看下吗？</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>这真的是我们想要的？（思绪又断了）</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>持续的思考，学习，刻意练习，输出人才能成长。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p> 有些鸡汤喝完激动两天就没了，咋办？每隔两天给自己打鸡血不得了。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p> 事情想明白，说出来，是件痛快事。反之，憋坏。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>看完「人类简史」，感触很深，要表达出来很难，不知道为什么。输入有了，输出哪去呢？</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/碎语一/" data-id="cje2hkp2e000cgc78jbu8xlr1" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MacTalk·人生元编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/MacTalk·人生元编程/" class="article-date">
+  <time datetime="2016-11-09T07:14:11.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MacTalk·人生元编程"><a href="#MacTalk·人生元编程" class="headerlink" title="MacTalk·人生元编程"></a>MacTalk·人生元编程</h1><h5 id="文章内容是阅读的摘抄，分享给大家，版权归作者所有。"><a href="#文章内容是阅读的摘抄，分享给大家，版权归作者所有。" class="headerlink" title="文章内容是阅读的摘抄，分享给大家，版权归作者所有。"></a>文章内容是阅读的摘抄，分享给大家，版权归作者所有。</h5><hr>
+<ul>
+<li>我们都知道，从平庸到优秀是容易的，从优秀到卓越是痛苦的，可能很多人、公司穷尽一生都无法达到卓越的境地。</li>
+<li>有时候，我们只是需要一点耐心，把我们自己的事情做好的同时，再等等。</li>
+<li>这时候你就会慢慢认识到，想取得什么样的成就，或者想成为什么样的人，除了通过长期艰苦的练习和有意识的提升，资质、环境、勇气、运气等同样重要。</li>
+<li>然后很快你就三十了，三十而立，梦想似乎已经远走，每个人都在感慨，这么多年付出了真心却收获了一堆下水，不知道那些真心和梦想都去哪了，不是说能量守恒吗？都他妈去哪了？其实都在，它们就藏在某个角落默默地等着，一旦你准备重新上路，它们就会跳出来，指引你前行。所以最重要的是你还想做事，而不是混世。有人说不知道自己想做什么，那么最好的办法就是把目前正在做的事情做好，如果你把不感兴趣的事情都做好了，一旦你找到自己的方向，那你得做得多好啊。</li>
+<li>先问了几个朋友都说比较稳定，后万事不决问Google，得知我必须用的几个软件都已经有新版本兼容了，遂决定周末花时间升级，并在微博上发布了这一消息。这时就看出人品了，马上有达人发来祝福，“无数事实证明了一个颠扑不破的真理——不作死就不会死啊，兄弟”，我毅然回复，“哥行走江湖靠的是个稳字，早就备份袅”。</li>
+<li>程序员如何提高英语阅读水平,最简单的坚持，最后的结果都是惊人的。这世界上一直存在一条路，让我们的能力从平庸到杰出，这条路漫长而且艰辛，只有少数人愿意走下去，所以，优秀的人永远是少数。</li>
+<li>如果你是个程序员，好吧，你的人生将由一行行飘逸的代码和捉摸不定的bug组成，所谓编程人生，就是你的一生已经与编程密不可分，为代码欢笑，为bug忧伤。</li>
+<li>元编程就是能够操作代码的代码，元数据就是能够描述数据的数据。</li>
+<li>无论是编程还是人生，都特么是相通的，想清楚了这一点，你就会觉得百无聊赖，因为万事万物要么是熊样要么是鸟样，都脱不出那个框框。具备元编程的语言就具备更强大的操控自己的能力，可以自省，可以反射，可以动态改变和控制自己；具备人生元编程能力的人，同样有自省能力，随时检查和控制自身的情绪和行为，思考自己的想法，改变大脑的动机。</li>
+<li><p>不要做一个Hater,这种人对自己不了解或没有勇气尝试的事物永远持否定态度，如果你发现一个人大部分时间在否定着什么，那么他们的意见不听也罢，甚至于那些鼓励的建议也仅仅是建议而已，仅供参考，因为最终不是那些提建议的人去做事和承担后果。</p>
+</li>
+<li><p>克隆高手,若非如此，高手不可培养，只能独自成长。老兵不死，只能自我提升</p>
+</li>
+<li><p>30多岁基本都形成了自己的完整三观，至于三观正与不正，就仁者见仁了。这样的人你试图以旁观者清的理由告诉他一些人一些事，提些建议或给些意见，得到的反馈基本都是面带笑容频频点头和若有所思，心里不骂娘、手里不攥紧诺记手机已经算是对你客气了。</p>
+</li>
+<li><p>看了这篇文章不要试图和你的领导去探讨意见和建议的事，无论是工作中的还是家里的，他/她们的处理原则是不变的：有意见可以提，保留就是了。不听劝非要去争取自由的，生死由命富贵在天，MacTalk不负担任何法律责任</p>
+</li>
+<li><p>网络上更是乌烟瘴气，网络骂战几乎分不出胜负，大部分人都在相信自己原来相信的东西，只有那些一直积极思考并且愿意接受新思想的人才有可能改变，这部分人的比例是极少的，如果你是，那就是大幸！</p>
+</li>
+<li><p>如果别人需要我的意见，知无不言，但不要去追寻结果，不要以为你的建议是金科玉律不听不行，更不要事后说，“我早就说过……”</p>
+</li>
+<li><p>如果我需要别人的意见和建议，那就把自己放空，暂时扔掉偏见和预判，认真听好好学，争取融会贯通，提升自我，如果确实无法接受，那也不必抱怨，最后要记得说“谢谢”。</p>
+</li>
+<li><p>其实每个人在某个城市待久了都会疲惫，每份工作干多了都会厌倦，为了疲惫和厌倦的改变，那不叫改变，那叫逃避。面对无数的选择和变化，你沉溺其中，但是依然无法获得理想中的生活。</p>
+</li>
+<li><p>只要你没有一个强悍的爹，就要先忘掉那些小鱼小蟹还有珊瑚丛，那些暂时还不属于你，踏踏实实的练习和提升才是正道，为自己规划一个十年的长跑，可以时不时停下来休息一下，低下头汗水就落入尘埃，抬起头就看看夕阳西下，你抹去疲惫，然后继续前行。十年看似很长，但实在很短，十年以后你回头看看，你究竟是成了人中龙凤，还是小鱼小虾，是你认知了世界，还是世界抛弃了你。</p>
+</li>
+<li><p>你不知道什么时候是终点，可能倒下的时候就是终点吧。</p>
+</li>
+</ul>
+<hr>
+<p>多看笔记 来自多看阅读 for Kindle</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/09/MacTalk·人生元编程/" data-id="cje2hkp1s0006gc78h88qelih" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一篇关于Awesome的awesome" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/一篇关于Awesome的awesome/" class="article-date">
+  <time datetime="2016-11-09T07:12:47.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一篇关于Awesome的awesome"><a href="#一篇关于Awesome的awesome" class="headerlink" title="一篇关于Awesome的awesome"></a>一篇关于Awesome的awesome</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">地址</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> <a href="https://github.com/Juude/awesome-android-performance" target="_blank" rel="noopener">awesome-android-performance</a></td>
+<td style="text-align:left">Android performance optimization tutorials, videos and tools list(Android性能优化视频，文档以及工具)</td>
+</tr>
+<tr>
+<td style="text-align:left"> <a href="https://github.com/CharzLuo/Awesome-Sketch" target="_blank" rel="noopener">Awesome-Sketch</a></td>
+<td style="text-align:left">派生自 github.com/diessica/awesome-sketch 并进行中文化，同时适当增加了一些内容</td>
+</tr>
+<tr>
+<td style="text-align:left">  <a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener">awesome</a></td>
+<td style="text-align:left">awesome集大成者，包括语言，视频，技巧，书籍等等，下面github awsome大都在此列表</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/JStumpp/awesome-android" target="_blank" rel="noopener">awesome-android</a></td>
+<td style="text-align:left">A curated list of awesome Android packages and resources.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/akullpp/awesome-java" target="_blank" rel="noopener">awesome-java</a></td>
+<td style="text-align:left">A curated list of awesome Java frameworks, libraries and software.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/justjavac/awesome-awesomeness-zh_CN" target="_blank" rel="noopener">awesome-awesomeness-zh_CN</a></td>
+<td style="text-align:left">一份关于“资料汇总”的汇总。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/wasabeef/awesome-android-ui" target="_blank" rel="noopener">awesome-android-ui</a></td>
+<td style="text-align:left">Android UI/UX的的汇总</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/iamdaiyuan/ios_top_1000" target="_blank" rel="noopener">ios_top_1000</a></td>
+<td style="text-align:left">IOS Top 1000开源排行榜</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/cjwirth/awesome-ios-ui" target="_blank" rel="noopener">awesome-ios-ui</a></td>
+<td style="text-align:left">Android UI/UX的的汇总</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/09/一篇关于Awesome的awesome/" data-id="cje2hkp1x0009gc78v32nvl1g" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Developer-tool" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/Developer-tool/" class="article-date">
+  <time datetime="2016-11-09T02:11:10.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Developer-tool</p>
+<ul>
+<li><p>AndroidStudio-tool</p>
+<p>地址  | 描述<br>:————-  | :————-<br><a href="https://github.com/avast/android-butterknife-zelezny" target="_blank" rel="noopener">android-butterknife-zelezny</a>|  自动生成butterknife injections<br><a href="https://github.com/ChrisRM/material-theme-jetbrains" target="_blank" rel="noopener">material-theme-jetbrains</a>|  jetbrains material主题<br><a href="https://github.com/Vektah/CodeGlance" target="_blank" rel="noopener">CodeGlance</a>|  像Sublime那样代码窗口有预览<br><a href="https://github.com/dmytrodanylyk/folding-plugin" target="_blank" rel="noopener">Android File Grouping</a>|  给layout 像pack一样分组</p>
+<ul>
+<li>Chrome-tool</li>
+</ul>
+<p>地址  | 描述<br>:————-  | :————-<br><a href="https://chrome.google.com/webstore/detail/vysor-beta/gidgenkbbabolejbgbpnhbimgjbffefm" target="_blank" rel="noopener">vysor</a>|  Android手机屏幕同步连接电脑，丝滑流畅</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/09/Developer-tool/" data-id="cje2hkp1k0001gc78vqxc0kth" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-重拾博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/07/重拾博客/" class="article-date">
+  <time datetime="2016-11-07T10:02:24.000Z" itemprop="datePublished">2016-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="重拾博客"><a href="#重拾博客" class="headerlink" title="重拾博客"></a>重拾博客</h1><p><img src="http://ogmiq4hkc.bkt.clouddn.com/blog.jpg" alt="nicodelee"></p>
+<blockquote>
+<p>一直考虑,再开博客?</p>
+</blockquote>
+<p>考虑来去,各种方案:</p>
+<ol>
+<li>比如再回到新浪sae建一个,WordPress支持不友好,版本太旧,收费也不便宜,作罢.</li>
+<li>Github建立一个静态网站,觉得只是做下demo演示还好,功能简单,不符合要求.</li>
+<li>还有<a href="https://nicodelee.farbox.com/" target="_blank" rel="noopener">farbox的二级站点</a>,码字体验不错,有桌面客户端.二级域名个人品牌价值不大,后期失去更新的动力.</li>
+</ol>
+<p>最后,还是买了域名,买了空间,搭建了博客.<br>没有持续的写作输出，难有成长。<br>作为社交动物的一份子，文字跟语言是最主要的表达渠道，换言之，就是锤炼自己的写作能力。<br>没有比刻意训练更好的办法了，能想到最好的方式就是开博写作。<br>博客也是一项作品，搭建前前后后，修改会接触到不是建站，前后端知识。<br>一切都是为了更加美好</p>
+<p>每个个体都应该有自己的声音，发声不能指望别人，这事得靠自己。</p>
+<blockquote>
+<p>为了更好的表达。代码如诗，诗如代码</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/07/重拾博客/" data-id="cje2hkp2s000fgc78stip5nm1" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/一些效果、功能的自我最佳实践/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/GitHub组织指南/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/31/Android Studio快捷键/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/23/让自己回归技术本心/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
